@@ -16,6 +16,7 @@ btn.addEventListener('click', function(){
     const playground = document.getElementById('playground');
     // dichiaro quanti quadratini voglio in totale
     const squareNum = 100;
+    playground.innerHTML='';
     //richiamo il ciclo per stampare i vari quadrati
     for( let i = 0; i < squareNum; i++){    
     // genero quadratino chiamando la funzione

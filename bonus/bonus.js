@@ -1,31 +1,37 @@
 
-// 1. L'utente clicca su un bottone che genererà una griglia di gioco quadrata.
-// 2. Ogni cella ha un numero progressivo, da 1 a 100.
-// 3. Ci saranno quindi 10 caselle per ognuna delle 10 righe.
-// >> Quando l'utente clicca su ogni cella, la cella cliccata si colora di azzurro ed emetto un messaggio in console con il numero della cella cliccata.
+// Poi procedete ad implementare il bonus come segue.
+// Aggiungere una select accanto al bottone di generazione, che fornisca una scelta tra tre diversi livelli di difficoltà:
+// - con difficoltà 1 => 100 caselle, con un numero compreso tra 1 e 100, divise in 10 caselle per 10 righe;
+// - con difficoltà 2 => 81 caselle, con un numero compreso tra 1 e 81, divise in 9 caselle per 9 righe;
+// - con difficoltà 3 => 49 caselle, con un numero compreso tra 1 e 49, divise in 7 caselle per 7 righe;
 
 
 
 
 // 2. creare bottone per generare quadratini
-const btn = document.querySelector('button');
+const send = document.querySelector('input');
 
 // richiamo funzionalità al bottone
-btn.addEventListener('click', function(){
+send.addEventListener('click', function(){
     // dichiaro la costante della griglia intera
     const playground = document.getElementById('playground');
     // dichiaro quanti quadratini voglio in totale
-    const squareNum = 100;
+    const difficult = document.getElementById('difficult').value;
+    console.log(difficult)
+    // easy = 100 caselle
+    
+    let squareNum = difficult;
+    playground.innerHTML='';
     //richiamo il ciclo per stampare i vari quadrati
-    for( let i = 0; i < squareNum; i++){    
+    for( let i = 1; i <= squareNum; i++){    
     // genero quadratino chiamando la funzione
     let square = miniSquare(i);
+
+  
         // appendo il quadratino alla griglia
-    playground.append(square);   
-   
+    playground.append(square);    
+  
 }
-
-
 });
 
 
@@ -34,13 +40,17 @@ btn.addEventListener('click', function(){
 function miniSquare(squareEl) {
     const square = document.createElement('div');
     square.classList.add('square');
-    square.innerHTML = squareEl + 1;
+    square.innerHTML = squareEl;
     square.addEventListener('click', function(){
         square.classList.add('active');
-        console.log('hai cliccato la casella' + ' ' + (squareEl + 1) )
+        console.log('hai cliccato la casella' + ' ' + squareEl )
     })
-    return square;
-    
-    
-   
+    return square;     
+};
+
+function level(){
+const levelSquare = Math.sqrt(difficult);
+miniSquare.style.width = calc (100% / `$difficult`)
+
+console.log(levelSquare);
 }
