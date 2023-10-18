@@ -8,7 +8,8 @@
 
 
 // 2. creare bottone per generare quadratini
-const btn = document.querySelector('button');
+const btn = document.getElementById('btnSend');
+const result = document.querySelector('span');
 
 // richiamo funzionalità al bottone
 btn.addEventListener('click', function(){
@@ -18,7 +19,7 @@ btn.addEventListener('click', function(){
     const squareNum = 100;
     playground.innerHTML='';
     //richiamo il ciclo per stampare i vari quadrati
-    for( let i = 0; i < squareNum; i++){    
+    for( let i = 1; i <= squareNum; i++){    
     // genero quadratino chiamando la funzione
     let square = miniSquare(i);
         // appendo il quadratino alla griglia
@@ -35,10 +36,10 @@ btn.addEventListener('click', function(){
 function miniSquare(squareEl) {
     const square = document.createElement('div');
     square.classList.add('square');
-    square.innerHTML = squareEl + 1;
+    square.innerHTML = squareEl;
     square.addEventListener('click', function(){
         square.classList.add('active');
-        console.log('hai cliccato la casella' + ' ' + (squareEl + 1) )
+       result.innerHTML = 'hai cliccato la casella' + ' ' + squareEl;
     })
     return square;
     

@@ -12,6 +12,8 @@
 const send = document.querySelector('input');
 const result = document.getElementById('result');
 // richiamo funzionalità al bottone
+
+
 send.addEventListener('click', function () {
     // dichiaro la costante della griglia intera
     const playground = document.getElementById('playground');
@@ -45,10 +47,20 @@ function miniSquare(squareEl, squareNum) {
     square.style.height = square.style.width;
     square.innerHTML = squareEl;
     square.addEventListener('click', function () {
-        square.classList.add('active');
-
+    //     if (squareEl % 2 === 0){
+    //     square.classList.add('active');
+    // } else {
+    //     square.classList.add('bomb');
+    // }
+    square.classList.add('active');
         result.innerHTML = 'hai cliccato la casella' + ' ' + squareEl;
     })
     return square;
 };
 
+
+//utility
+
+function getRndInteger(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
