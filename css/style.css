@@ -1,9 +1,22 @@
 
+/* // 1. creare tavola per campo minato X */
 
 #playground{
     width: 700px;
     height: 700px;
     background-color: black;
     margin: 50px auto;
+    display: flex;
+    flex-wrap: wrap;
 }
 
+.square{
+    width: (100% / 10);
+    height: (100% / 10);   
+    border: 1px solid white;
+ 
+}
+
+.active{
+    background-color: aquamarine;
+}
