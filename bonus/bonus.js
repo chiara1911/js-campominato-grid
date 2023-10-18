@@ -11,6 +11,8 @@
 // 2. creare bottone per generare quadratini
 const send = document.querySelector('input');
 const result = document.getElementById('result');
+const opponent = document.getElementById('cpu').value;
+
 // richiamo funzionalità al bottone
 
 
@@ -19,10 +21,7 @@ send.addEventListener('click', function () {
     const playground = document.getElementById('playground');
     // dichiaro quanti quadratini voglio in totale
     const squareNum = document.getElementById('difficult').value;
-    console.log(squareNum)
-    // easy = 100 caselle
-
-
+    console.log(squareNum);    
     playground.innerHTML = '';
     //richiamo il ciclo per stampare i vari quadrati
     for (let i = 1; i <= squareNum; i++) {
@@ -32,7 +31,20 @@ send.addEventListener('click', function () {
         playground.append(square);
 
     }
+
+    // fare funzione per numero random rosso(bomba)
+    cpu.addEventListener('click', function (){  
+    const cpu= document.getElementById('cpu');
+      const cpuNum = getRndInteger(1, 100);
+      let bomb = miniSquare (cpuNum);   
+
+      square.classList.add('bomb');
+        console.log(cpuNum);
+    }); 
+    return squareNum;
 });
+
+
 
 
 // fare una funzione per creare un quadratino
