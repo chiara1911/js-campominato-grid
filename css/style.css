@@ -11,12 +11,17 @@
 }
 
 .square{
-    width: (100% / 10);
-    height: (100% / 10);   
+    width: calc(100% / 10);
+    height: calc(100% / 10);   
     border: 1px solid white;
+    display: flex;    
+    justify-content: center;
+    align-items: center;
+    color: white;
  
 }
 
 .active{
     background-color: aquamarine;
+    color: black;
 }

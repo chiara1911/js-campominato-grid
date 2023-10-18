@@ -11,22 +11,21 @@
 const btn = document.querySelector('button');
 
 // richiamo funzionalità al bottone
-btn.addEventListener('click', function () {
+btn.addEventListener('click', function(){
     // dichiaro la costante della griglia intera
     const playground = document.getElementById('playground');
     // dichiaro quanti quadratini voglio in totale
     const squareNum = 100;
     //richiamo il ciclo per stampare i vari quadrati
-    for( let i = 0; i < squareNum; i++){
-
-    
+    for( let i = 0; i < squareNum; i++){    
     // genero quadratino chiamando la funzione
     let square = miniSquare(i);
-    console.log(square);
-
-    // appendo il quadratino alla griglia
-    playground.append(square);
+        // appendo il quadratino alla griglia
+    playground.append(square);   
+   
 }
+
+
 });
 
 
@@ -38,6 +37,10 @@ function miniSquare(squareEl) {
     square.innerHTML = squareEl + 1;
     square.addEventListener('click', function(){
         square.classList.add('active');
+        console.log('hai cliccato la casella' + ' ' + (squareEl + 1) )
     })
     return square;
+    
+    
+   
 }
