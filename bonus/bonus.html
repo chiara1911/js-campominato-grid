@@ -11,18 +11,22 @@
 </head>
 
 <body>
-    <main>
+    <main class="d-flex justify-content-center flex-column">
         <div id="playground">
 
         </div>
-        <select name="difficult" id="difficult">
-            <option value="100">easy-100 caselle</option>
-            <option value="81">medium-81 caselle</option>
-            <option value="49">hard-49 caselle</option>           
-          </select>
-
-          <input type="submit" value="invia" >
-      
+        <div class="d-flex justify-content-center">
+            <select name="difficult" id="difficult" class=" my-1 p-2">
+                <option value="100">easy-100 caselle</option>
+                <option value="81">medium-81 caselle</option>
+                <option value="49">hard-49 caselle</option>           
+              </select>
+    
+              <input type="submit" value="invia" class=" m-1" >
+              <span class="bg-gradient mt-2" id="result"></span>
+        </div>
+       
+        
 
     </main>
 

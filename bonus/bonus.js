@@ -10,47 +10,45 @@
 
 // 2. creare bottone per generare quadratini
 const send = document.querySelector('input');
-
+const result = document.getElementById('result');
 // richiamo funzionalità al bottone
-send.addEventListener('click', function(){
+send.addEventListener('click', function () {
     // dichiaro la costante della griglia intera
     const playground = document.getElementById('playground');
     // dichiaro quanti quadratini voglio in totale
-    const difficult = document.getElementById('difficult').value;
-    console.log(difficult)
+    const squareNum = document.getElementById('difficult').value;
+    console.log(squareNum)
     // easy = 100 caselle
-    
-    let squareNum = difficult;
-    playground.innerHTML='';
-    //richiamo il ciclo per stampare i vari quadrati
-    for( let i = 1; i <= squareNum; i++){    
-    // genero quadratino chiamando la funzione
-    let square = miniSquare(i);
 
-  
+
+    playground.innerHTML = '';
+    //richiamo il ciclo per stampare i vari quadrati
+    for (let i = 1; i <= squareNum; i++) {
+        // genero quadratino chiamando la funzione
+        let square = miniSquare(i, squareNum);
         // appendo il quadratino alla griglia
-    playground.append(square);    
-  
-}
+        playground.append(square);
+
+    }
 });
 
 
 // fare una funzione per creare un quadratino
 
-function miniSquare(squareEl) {
+function miniSquare(squareEl, squareNum) {
+
+    squareWidth = Math.sqrt(squareNum);
+    
     const square = document.createElement('div');
     square.classList.add('square');
+    square.style.width = `calc(100% / ${squareWidth})`;
+    square.style.height = square.style.width;
     square.innerHTML = squareEl;
-    square.addEventListener('click', function(){
+    square.addEventListener('click', function () {
         square.classList.add('active');
-        console.log('hai cliccato la casella' + ' ' + squareEl )
+
+        result.innerHTML = 'hai cliccato la casella' + ' ' + squareEl;
     })
-    return square;     
+    return square;
 };
 
-function level(){
-const levelSquare = Math.sqrt(difficult);
-miniSquare.style.width = calc (100% / `$difficult`)
-
-console.log(levelSquare);
-}
